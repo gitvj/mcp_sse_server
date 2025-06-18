@@ -1,0 +1,36 @@
+[Unit]
+Description=MCP SSE Server - Model Context Protocol Server-Sent Events Bridge
+Documentation=https://github.com/your-org/mcp-sse-server
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/mcp-sse-server
+ExecStart=/home/ubuntu/.nvm/versions/node/v20.15.1/bin/node server.js
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mcp-sse-server
+
+# Environment variables
+Environment=NODE_ENV=production
+Environment=PORT=3001
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/ubuntu/mcp-sse-server
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=32768
+
+[Install]
+WantedBy=multi-user.target 

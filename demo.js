@@ -1,0 +1,1 @@
+const express = require("express"); const app = express(); app.get("/", (req, res) => res.send("<h1>MCP SSE Demo Working!</h1><p>Server is running on port 3001</p>")); app.listen(3001, "0.0.0.0", () => console.log("Demo running on http://0.0.0.0:3001")); 
