@@ -175,6 +175,11 @@ install_mcp_servers() {
         "@executeautomation/playwright-mcp-server"
         "@modelcontextprotocol/server-puppeteer"
         "@playwright/mcp"
+        "@modelcontextprotocol/server-postgres"
+        "@modelcontextprotocol/server-github"
+        "@upstash/context7-mcp@latest"
+        "@modelcontextprotocol/server-sequential-thinking"
+        "postgres-mcp"
     )
     
     for server in "${mcp_servers[@]}"; do
@@ -190,6 +195,14 @@ install_mcp_servers() {
     log_message "INFO" "Installing Playwright browsers..."
     if command_exists playwright; then
         playwright install >> "$LOG_FILE" 2>&1 || log_message "WARNING" "Playwright browser installation failed"
+    fi
+    
+    # Install UV for Python MCP servers
+    log_message "INFO" "Installing UV (Python package manager)..."
+    if ! command_exists uv; then
+        curl -LsSf https://astral.sh/uv/install.sh | sh >> "$LOG_FILE" 2>&1 || log_message "WARNING" "UV installation failed"
+        # Add UV to PATH for current session
+        export PATH="$HOME/.cargo/bin:$PATH"
     fi
 }
 

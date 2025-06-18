@@ -344,6 +344,11 @@ const client = new MCPClient('http://YOUR_SERVER_IP:3001', 'YOUR_AUTH_TOKEN');
 | **playwright1** | Web automation, testing | ✅ Ready |
 | **playwright2** | Enhanced web automation | ✅ Ready |
 | **puppeteer** | Web scraping, PDF generation | ✅ Ready |
+| **doerdo-db** | PostgreSQL database operations (UV/Python) | ✅ Ready |
+| **doerai-db** | PostgreSQL database operations (Node.js) | ✅ Ready |
+| **github** | GitHub repository operations | ✅ Ready |
+| **context7** | Upstash Context7 operations | ✅ Ready |
+| **sequential-thinking** | Sequential thinking operations | ✅ Ready |
 
 ---
 

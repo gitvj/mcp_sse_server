@@ -1,0 +1,72 @@
+{
+    "mcpServers": {
+      "doerdo-db": {
+        "command": "uv",
+        "args": [
+          "run",
+          "postgres-mcp",
+          "--access-mode=unrestricted"
+        ],
+        "env": {
+          "DATABASE_URI": "YOUR_DOERDO_DATABASE_URI_HERE"
+        }
+      },
+      "doerai-db": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-postgres",
+          "YOUR_DOERAI_DATABASE_URI_HERE"
+        ]
+      },
+      "github": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-github"
+        ],
+        "env": {
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_TOKEN_HERE"
+        }
+      },
+      "@executeautomation-playwright-mcp-server": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@executeautomation/playwright-mcp-server"
+        ]
+      },
+      "playwright-mcp-server": {
+        "command": "cmd",
+        "args": [
+          "/c",
+          "npx",
+          "-y",
+          "@smithery/cli@latest",
+          "run",
+          "@executeautomation/playwright-mcp-server"
+        ]
+      },
+      "puppeteer": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-puppeteer"
+        ]
+      },
+      "context7": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@upstash/context7-mcp@latest"
+        ]
+      },
+      "sequential-thinking": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-sequential-thinking"
+        ]
+      }
+    }
+  }

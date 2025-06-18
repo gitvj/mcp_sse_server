@@ -169,6 +169,53 @@ const mcpConfigs = {
         command: 'npx',
         args: ['-y', '@modelcontextprotocol/server-puppeteer'],
         env: {}
+    },
+    'doerdo-db': {
+        command: 'uv',
+        args: [
+            'run',
+            'postgres-mcp',
+            '--access-mode=unrestricted'
+        ],
+        env: {
+            DATABASE_URI: process.env.DOERDO_DATABASE_URI || "postgresql://user:pass@localhost:5432/db"
+        }
+    },
+    'doerai-db': {
+        command: 'npx',
+        args: [
+            '-y',
+            '@modelcontextprotocol/server-postgres'
+        ],
+        env: {
+            POSTGRES_CONNECTION_STRING: process.env.DOERAI_DATABASE_URI || "postgresql://postgres:password@localhost:5432/doerai_dev"
+        }
+    },
+    'github': {
+        command: 'npx',
+        args: [
+            '-y',
+            '@modelcontextprotocol/server-github'
+        ],
+        env: {
+            GITHUB_PERSONAL_ACCESS_TOKEN: process.env.GITHUB_PERSONAL_ACCESS_TOKEN
+        }
+    },
+    'context7': {
+        command: 'npx',
+        args: [
+            '-y',
+            '@upstash/context7-mcp@latest'
+        ],
+        env: {}
+    },
+    'sequential-thinking': {
+        command: 'npx',
+        args: [
+            '-y',
+            '@modelcontextprotocol/server-sequential-thinking'
+        ],
+        env: {}
     }
 };
 

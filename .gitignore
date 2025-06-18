@@ -99,4 +99,7 @@ Thumbs.db
 *.p12
 *.pfx
 auth.json
-config.json 
+config.json
+
+# MCP configuration files with secrets (user's personal configs)
+mcp.json 

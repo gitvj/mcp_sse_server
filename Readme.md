@@ -10,7 +10,7 @@
 
 ✅ **Enterprise Security** - Token auth, IP whitelist, rate limiting  
 ✅ **Persistent Operation** - Survives terminal closure, auto-starts on boot  
-✅ **Multiple MCP Servers** - TaskMaster-AI, Playwright, Puppeteer support  
+✅ **Multiple MCP Servers** - TaskMaster-AI, Playwright, Puppeteer, PostgreSQL, GitHub, Context7  
 ✅ **Real-time SSE** - Live streaming from MCP servers  
 ✅ **Production Ready** - PM2, systemd, Docker deployment options  
 ✅ **Remote Access** - Access MCP servers from any machine  
