@@ -231,21 +231,21 @@ if (!process.env.PERPLEXITY_API_KEY) {
 function startMcpProcess(serverName, config) {
     console.log(`Starting MCP server: ${serverName}`);
     
-    const process = spawn(config.command, config.args, {
+    const childProcess = spawn(config.command, config.args, {
         env: { ...process.env, ...config.env },
         stdio: ['pipe', 'pipe', 'pipe']
     });
 
-    process.stdout.on('data', (data) => {
+    childProcess.stdout.on('data', (data) => {
         console.log(`[${serverName}] ${data}`);
     });
 
-    process.stderr.on('data', (data) => {
+    childProcess.stderr.on('data', (data) => {
         console.error(`[${serverName}] ERROR: ${data}`);
     });
 
-    mcpProcesses.set(serverName, { process, config });
-    return process;
+    mcpProcesses.set(serverName, { process: childProcess, config });
+    return childProcess;
 }
 
 // Public routes (no authentication required)
